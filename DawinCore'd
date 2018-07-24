@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://github.com/lewca/Cthulhu-Mythos"
+    xmlns:cm="https://github.com/lewca/Cthulhu-Mythos"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"     
+    xmlns:mods="http://www.loc.gov/mods/v3" elementFormDefault="qualified"
+    xmlns:dwc="http://rs.tdwg.org/dwc/2014-11-08/" xmlns:dwcterms="http://purl.org/dc/terms/"
+    
+    <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
+    <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd" />
+    <xs:import namespace="http://www.loc.gov/mods/v3" schemaLocation="http://www.loc.gov/standards/mods/v3/mods-3-7.xsd"/>
+    <xs:import namespace="http://rs.tdwg.org/dwc/2014-11-08/"></xs:import>
+    
+    <xs:element name="cthulhuMythos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cursedObject" type="xs:string" minOccurs="0"/>
+                <xs:element name="oldOnes" type="xs:string" minOccurs="0"/>
+                <xs:element ref="cm:modsSection" minOccurs="0"/>
+                <xs:element ref="cm:dcSection" minOccurs="0" />
+                <xs:element ref="cm:dwcSection" minOccurs="0"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="modsSection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="mods:mods" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="dcSection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:sequence>
+                    <xs:element ref="dc:any" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="dwcSection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Location" xs="string" minOccurs="0"/>
+                <xs:element ref="verbatimDepth" xs="string" minOccurs="0"/>
+                <xs:element red="geologicalContextID" xs="string" minOccurs="0"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
